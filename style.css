@@ -1,17 +1,100 @@
-*
-{
+/* Reset */
+
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
-.header
-{
-    border: 1px solid black;
+
+/* Body */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    min-height: 100vh;
 }
-.main
-{
-    border: 1px solid green;
+
+/* Header */
+
+.header {
+    text-align: center;
+    padding: 30px 20px;
+    color: white;
 }
-.footer
-{
-    border: 1px solid blue;
+
+#title {
+    font-size: 36px;
+    margin-bottom: 8px;
+}
+
+#desc {
+    font-weight: normal;
+    opacity: 0.9;
+}
+
+/* Main Container */
+
+.main {
+    width: 420px;
+    margin: 30px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Section Title */
+
+.title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Labels */
+
+.val {
+    margin-top: 15px;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Inputs */
+
+input,
+textarea {
+    width: 100%;
+    padding: 10px 12px;
+
+    border-radius: 6px;
+    border: 1px solid #ccc;
+
+    font-size: 14px;
+
+    transition: 0.2s;
+}
+
+/* Textarea height */
+
+textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+/* Focus effect */
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 4px rgba(102, 126, 234, 0.4);
+}
+
+/* Footer (placeholder for later) */
+
+.footer {
+    height: 40px;
 }
