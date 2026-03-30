@@ -83,7 +83,41 @@ textarea {
     min-height: 80px;
     resize: vertical;
 }
+/* Generate Button */
 
+#generateWebsite {
+    width: 100%;
+    margin-top: 25px;
+
+    padding: 12px;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+
+    border: none;
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    transition: all 0.25s ease;
+}
+
+/* Hover effect */
+
+#generateWebsite:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Click effect */
+
+#generateWebsite:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
 /* Focus effect */
 
 input:focus,
