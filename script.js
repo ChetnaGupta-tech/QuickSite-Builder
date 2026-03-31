@@ -14,6 +14,8 @@ let generateWebsite = document.querySelector("#generateWebsite");
 let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 let phonePattern = /^[0-9]{10}$/;
 let templatesSection = document.querySelector("#templatesSection");
+let createWebsiteBtn = document.querySelector("#createWebsiteBtn");
+let loaderOverlay = document.querySelector("#loaderOverlay")
 
 // Hide button initially
 generateWebsite.style.visibility = "hidden";
@@ -109,3 +111,15 @@ cards.forEach(function(card) {
         console.log("Selected Template:", selectedTemplate);
     });
 });
+
+createWebsiteBtn.addEventListener("click", function(){
+    if(!selectedTemplate){
+        alert("Please select a template");
+        return;
+    }
+    loaderOverlay.style.display = "flex";
+    setTimeout(function () {
+        window.open("generated.html", "_blank");
+        loaderOverlay.style.display = "none";
+    }, 3000);
+})
