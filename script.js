@@ -3,19 +3,17 @@
 let header = document.querySelector(".header");
 let main = document.querySelector(".main");
 let footer = document.querySelector(".footer");
-
 let businessForm = document.querySelector("#businessForm");
-
 let businessName = document.querySelector("#businessName");
 let businessType = document.querySelector("#businessType");
 let products = document.querySelector("#products");
 let phone = document.querySelector("#phone");
 let email = document.querySelector("#email");
 let address = document.querySelector("#address");
-
 let generateWebsite = document.querySelector("#generateWebsite");
 let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 let phonePattern = /^[0-9]{10}$/;
+let templatesSection = document.querySelector("#templatesSection");
 
 // Hide button initially
 generateWebsite.style.visibility = "hidden";
@@ -89,33 +87,25 @@ generateWebsite.addEventListener("click", function(e) {
         showError("Phone number must be exactly 10 digits");
         return;
     }
+
+    templatesSection.style.display = "block";
+    templatesSection.scrollIntoView({behavior:"smooth"})
 });
 
 // Card selection
 let cards = document.querySelectorAll(".templateCard");
-
 let selectedTemplate = null;
 
 cards.forEach(function(card) {
-
     card.addEventListener("click", function() {
-
         /* Remove selection from all cards */
-
         cards.forEach(function(c) {
             c.classList.remove("selected");
         });
-
         /* Add selection to clicked card */
-
         card.classList.add("selected");
-
         /* Store selected template */
-
         selectedTemplate = card.dataset.template;
-
         console.log("Selected Template:", selectedTemplate);
-
     });
-
 });
