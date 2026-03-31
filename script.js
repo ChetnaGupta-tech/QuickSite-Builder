@@ -112,14 +112,52 @@ cards.forEach(function(card) {
     });
 });
 
-createWebsiteBtn.addEventListener("click", function(){
-    if(!selectedTemplate){
-        alert("Please select a template");
+createWebsiteBtn.addEventListener("click", function (e) {
+    e.preventDefault();
+
+    if (!selectedTemplate) {
+        alert("Please select a template first");
         return;
     }
+
+    /* Create data object */
+
+    let websiteData = {
+
+        name: businessName.value,
+        type: businessType.value,
+        products: products.value,
+        phone: phone.value,
+        email: email.value,
+        address: address.value,
+        template: selectedTemplate
+
+    };
+
+    console.log("Saving data:", websiteData);
+
+    /* Save data FIRST */
+
+    localStorage.setItem(
+        "websiteData",
+        JSON.stringify(websiteData)
+    );
+    console.log(
+        "Stored value:",
+        localStorage.getItem("websiteData")
+    );
+    /* Show loader */
+
     loaderOverlay.style.display = "flex";
+
+    /* Wait and open page */
+
     setTimeout(function () {
+
         window.open("generated.html", "_blank");
+
         loaderOverlay.style.display = "none";
+
     }, 3000);
-})
+
+});

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Business Website</title>
+
+    <style>
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            background: #f4f4f4;
+        }
+
+        .header {
+            background: #667eea;
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .container {
+            width: 80%;
+            margin: 30px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        p {
+            margin: 10px 0;
+            font-size: 16px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="header">
+        <h1 id="businessNameDisplay">
+            Business Name
+        </h1>
+    </div>
+
+    <div class="container">
+
+        <h2>Business Details</h2>
+
+        <p>
+            <strong>Type:</strong>
+            <span id="typeDisplay"></span>
+        </p>
+
+        <p>
+            <strong>Products / Services:</strong>
+            <span id="productsDisplay"></span>
+        </p>
+
+        <p>
+            <strong>Phone:</strong>
+            <span id="phoneDisplay"></span>
+        </p>
+
+        <p>
+            <strong>Email:</strong>
+            <span id="emailDisplay"></span>
+        </p>
+
+        <p>
+            <strong>Address:</strong>
+            <span id="addressDisplay"></span>
+        </p>
+
+    </div>
+
+    <script>
+
+        /* Get stored data */
+
+        let data =
+            JSON.parse(
+                localStorage.getItem("websiteData")
+            );
+
+        /* Display data */
+
+        document.getElementById(
+            "businessNameDisplay"
+        ).innerText = data.name;
+
+        document.getElementById(
+            "typeDisplay"
+        ).innerText = data.type;
+
+        document.getElementById(
+            "productsDisplay"
+        ).innerText = data.products;
+
+        document.getElementById(
+            "phoneDisplay"
+        ).innerText = data.phone;
+
+        document.getElementById(
+            "emailDisplay"
+        ).innerText = data.email;
+
+        document.getElementById(
+            "addressDisplay"
+        ).innerText = data.address;
+
+    </script>
+
+</body>
+</html>
