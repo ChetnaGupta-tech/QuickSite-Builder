@@ -15,17 +15,12 @@ let address = document.querySelector("#address");
 
 let generateWebsite = document.querySelector("#generateWebsite");
 let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
+let phonePattern = /^[0-9]{10}$/;
 
 // Hide button initially
-
 generateWebsite.style.visibility = "hidden";
-
-
 // Function to check required fields
-
 function checkRequiredFields() {
-
     if (
         businessName.value.trim() &&
         phone.value.trim() &&
@@ -38,7 +33,6 @@ function checkRequiredFields() {
     }
 
 }
-
 
 // Listen to input changes
 
@@ -88,7 +82,40 @@ generateWebsite.addEventListener("click", function(e) {
     console.log(businessData);
 
     if (!emailPattern.test(email.value.trim())) {
-    showError("Please enter a valid email address");
-    return;
-}
+        showError("Please enter a valid email address");
+        return;
+    }
+    if (!phonePattern.test(phone.value.trim())) {
+        showError("Phone number must be exactly 10 digits");
+        return;
+    }
+});
+
+// Card selection
+let cards = document.querySelectorAll(".templateCard");
+
+let selectedTemplate = null;
+
+cards.forEach(function(card) {
+
+    card.addEventListener("click", function() {
+
+        /* Remove selection from all cards */
+
+        cards.forEach(function(c) {
+            c.classList.remove("selected");
+        });
+
+        /* Add selection to clicked card */
+
+        card.classList.add("selected");
+
+        /* Store selected template */
+
+        selectedTemplate = card.dataset.template;
+
+        console.log("Selected Template:", selectedTemplate);
+
+    });
+
 });
